@@ -1,1 +1,0 @@
-Simulator for occupancy grid map of the indoor environment
