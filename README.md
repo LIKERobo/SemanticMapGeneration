@@ -29,9 +29,9 @@ Generated maps with different types of noise
 * __Code/main.py__: contains a function to run the simulator
 
 ## How to use:
-The parameters in _Code/config.py_ can be tuned according to the specific requirments. Please use __Code/main.py__ to run the simulator.
+The parameters in __Code/config.py__ can be tuned according to the specific requirments. Please use __Code/main.py__ to run the simulator.
 The required inputs are
 * map_num: the number of simulated maps
 * noise_types: the types of added noise ('noNoise','spNoise','combindNoise','GaussNoise')
 * noise_levels: the levels of added noise (0,1,2,...)
-* mode: 0-background, 1-doorway
+* mode: 0 for extracting patches of background, 1 for extracting patches containing a doorway
