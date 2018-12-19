@@ -18,7 +18,7 @@ class addNoise(Config):
     def __init__(self,single_map):
         self.map = single_map
 
-    def multiNoise(self,rotate_angle,level):
+    def combindNoise(self,rotate_angle,level):
         # add salt noise to the contours of rooms and furnitures
         sp_map = skimage.util.random_noise(self.map,'salt',amount=np.random.uniform(0.05+level*0.1,0.15+level*0.1))
         sp_map = np.round(sp_map*255).astype(np.uint8)
@@ -77,7 +77,7 @@ class addNoise(Config):
         rotate_map = cv2.warpAffine(noised_map,rotate_kernel,self.img_size,borderValue=self.colors['gray'])
         
         return rotate_map
-    def fullNoise(self,rotate_angle,level):
+    def GaussNoise(self,rotate_angle,level):
         # blur the map
         blur_map = cv2.GaussianBlur(self.map,(3,3),0)    
         blur_map[self.map==self.colors['black']] = self.map[self.map==self.colors['black']]
@@ -112,14 +112,24 @@ class addNoise(Config):
 
 if __name__=='__main__': 
     map_num=1
-    noise = 'multiNoise'
-    level=1    
+    noise = ['combindNoise','GaussNoise','spNoise']
+    level=2    
     map_sim = orig_map.orig_map()
     maps,masks = map_sim.creater(map_num)
     for single_map in maps:
         rotate_angle = np.random.randint(0,360)
         addnoise = addNoise(single_map)
-        noise_map = addnoise.add_noise(noise,rotate_angle,level)
-        cv2.imshow('map',noise_map)
+        cN_map = addnoise.add_noise(noise[0],rotate_angle,level)
+        gN_map = addnoise.add_noise(noise[1],rotate_angle,level)
+        sN_map = addnoise.add_noise(noise[2],rotate_angle,level)
+        noN_map = addnoise.add_noise('noNoise',0,0)
+#        cv2.imwrite('../Samples/map_CombNoise.png',cN_map)
+#        cv2.imwrite('../Samples/map_GaussNoise.png',gN_map)
+#        cv2.imwrite('../Samples/map_s&pNoise.png',sN_map)
+#        cv2.imwrite('../Samples/map_noNoise.png',noN_map)
+        cv2.imshow('map1',cN_map)
+        cv2.imshow('map2',gN_map)
+        cv2.imshow('map2',sN_map)
+        cv2.imshow('map3',noN_map)
         cv2.waitKey()
         cv2.destroyAllWindows()

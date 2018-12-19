@@ -126,7 +126,7 @@ class dataExtraction(Config):
                                             
 if __name__=='__main__': 
     map_num=5
-    noise_types = ['multiNoise','fullNoise']
+    noise_types = ['combindNoise','GaussNoise']
     levels=[1,7]   
     map_sim = orig_map.orig_map()
     maps,masks = map_sim.creater(map_num)

@@ -16,7 +16,7 @@ def main(map_num,noise_types,noise_levels,mode):
     """
     call the classes to generate and label the dataset automatically
     map_num: the number of simulated maps
-    noise_types: the types of added noise
+    noise_types: the types of added noise ('noNoise','spNoise','combindNoise','GaussNoise')
     noise_levels: the levels of added noise
     mode: 0-background, 1-doorway
     """
@@ -37,7 +37,7 @@ def main(map_num,noise_types,noise_levels,mode):
         extract.data(noised_maps,ref_map,single_mask,rotate_angle,mode)
         
 if __name__=='__main__': 
-    noise_types = ['multiNoise','fullNoise']
+    noise_types = ['combindNoise','GaussNoise']
     noise_levels = [1,4,7]
     main(10,noise_types,noise_levels,1)
     
