@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+Template repository for generating training data for supervised learning algorithms working on occupancy grid maps.
 ## Summary
 This is a simulator for generating occupancy grid maps of the indoor environment automatically. From the simulated maps, the image patches containing a doorway or background can be extracted and besides the mask of the doorway can be annotated. The simulated data can be used as training data for supervised deep learning methods.
 
