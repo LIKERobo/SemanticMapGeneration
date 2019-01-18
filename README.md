@@ -1,3 +1,4 @@
+# SemanticMapGeneration
 Template repository for generating training data for supervised learning algorithms working on occupancy grid maps.
 ## Summary
 This is a simulator for generating occupancy grid maps of the indoor environment automatically. From the simulated maps, the image patches containing a doorway or background can be extracted and besides the mask of the doorway can be annotated. The simulated data can be used as training data for supervised deep learning methods.
@@ -36,7 +37,3 @@ The required inputs are
 * noise_types: the types of added noise ('noNoise','spNoise','combindNoise','GaussNoise')
 * noise_levels: the levels of added noise (0,1,2,...)
 * mode: 0 for extracting patches of background, 1 for extracting patches containing a doorway
-=======
-# SemanticMapGeneration
-Template repository for generating training data for supervised learning algorithms working on occupancy grid maps.
->>>>>>> 9925dda8ca4c3d18bb01ddfadbce6cba0b446a08
